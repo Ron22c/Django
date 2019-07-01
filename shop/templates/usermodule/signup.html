@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "usermodule/base.html"%}
+{% block body_block %}
+<div class="jumbotron">
+  {% if registered %}
+  <h1>Thank you for the registration</h1>
+  {% else %}
+  <h1>Register here:</h1>
+  <h2>Complete the below mentioned form </h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <input type="submit" name="" value="Submit">
+  </form>
+  {% endif%}
+
+</div>
+
+{% endblock %}
